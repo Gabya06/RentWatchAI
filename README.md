@@ -16,7 +16,7 @@ RentWatchAI is an NLP-driven project that leverages large language models (LLMs)
 ### Features
 - Scrapes Reddit posts using PRAW
 - Sentiment analysis with Hugging Face transformers (e.g., RoBERTa)
-- Summarizes negative apartment reviews
+- Summarizes negative apartment reviews (e.g., OpenAI)
 - Displays results in a user-friendly Streamlit app with sentiment scores and charts
 
 ## Installation

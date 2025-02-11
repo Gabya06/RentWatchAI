@@ -5,16 +5,11 @@ from typing import Union, List, Tuple
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from scipy.special import softmax
-import seaborn as sns
 
 import torch
 import torch.nn.functional as F
 import transformers
-from transformers import pipeline
-from transformers import AutoModelForSequenceClassification
-from transformers import TFAutoModelForSequenceClassification
-from transformers import AutoTokenizer, AutoConfig
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 
 def predict_sentiment(
@@ -26,7 +21,7 @@ def predict_sentiment(
     """
         Predicts the sentiment of a text using a pre-trained model and tokenizer.
 
-    Parameters
+    Parameters:
     ----------
     text: str
         String with input text
@@ -37,7 +32,7 @@ def predict_sentiment(
     max_length: (int, optional)
         The maximum sequence length accepted by the model. Default is 512.
 
-    Returns
+    Returns:
     -------
     transformers.SequenceClassifierOutput
       The model's output, including predicted labels and probabilities.
@@ -84,7 +79,7 @@ def predict_sentiment(
     return output
 
 
-def interpret_sentiment(output):
+def interpret_sentiment(output) -> dict:
     """
     Interprets the sentiment from the model's output.
 

@@ -16,8 +16,8 @@ RentWatchAI is an NLP-driven project that leverages large language models (LLMs)
 ### Features
 - Scrapes Reddit posts using PRAW
 - Sentiment analysis with Hugging Face transformers (e.g., RoBERTa)
-- Summarizes negative apartment reviews (e.g., OpenAI)
-- Displays results in a user-friendly Streamlit app with sentiment scores and charts
+- Summarizes negative apartment reviews using Transformers (e.g., T5-Large, BART-CNN)
+
 
 ## Installation
 To get started, clone the repository and install the required libraries:
@@ -45,6 +45,10 @@ pip install transformers praw matplotlib pandas streamlit
 
 ### Step 2: Pull Reddit Comments
 Use PRAW to pull comments from specific Reddit posts.
+Extract Reddit comments:
+```bash
+python src/RentWatchAI/get_data.py
+```
 
 ### Step 3: Tokenize Comments
 Tokenize the comments to prepare them for the RoBERTa model.

@@ -1,15 +1,13 @@
-from ast import literal_eval
-import time
-from typing import Union, List, Tuple
-
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-
 import torch
 import torch.nn.functional as F
 import transformers
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+
+
+def preprocess_text(text):
+    """Preprocess text: lowercase, remove newlines, strip"""
+    return text.lower().replace("\n", " ").strip()
 
 
 def predict_sentiment(
@@ -19,7 +17,7 @@ def predict_sentiment(
     max_length: int = 512,
 ) -> transformers.modeling_outputs.SequenceClassifierOutput:
     """
-        Predicts the sentiment of a text using a pre-trained model and tokenizer.
+    Predicts the sentiment of a text using a pre-trained model and tokenizer.
 
     Parameters:
     ----------
@@ -69,7 +67,8 @@ def predict_sentiment(
     ]
     if out_of_range_positions:
         print(
-            f"Warning: Found {len(out_of_range_positions)} position IDs out of range: {out_of_range_positions} in text: {text}"
+            f"Warning: Found {len(out_of_range_positions)} position IDs out of\
+               range: {out_of_range_positions} in text: {text}"
         )
 
     # Perform inference
@@ -90,7 +89,8 @@ def interpret_sentiment(output) -> dict:
 
     Returns
     -------
-        dict: A dictionary containing the predicted sentiment label and its probability.
+        dict: A dictionary containing the predicted sentiment label
+            and its probability.
                e.g., {'label': 'positive', 'prob': 0.95}
     """
     # Calculate the probabilities of each sentiment using softmax

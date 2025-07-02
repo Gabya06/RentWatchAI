@@ -11,7 +11,7 @@ RentWatchAI is an NLP-driven project that leverages large language models (LLMs)
 - [Results](#results)
 - [Discussion](#discussion)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ### Features
 - Scrapes Reddit posts using PRAW
@@ -58,6 +58,9 @@ Utilize the RoBERTa model to predict sentiment scores and summarize negative rev
 
 ### Step 5: Visualize Results
 The results are displayed in a user-friendly Streamlit app, providing sentiment scores and visualizations.
+```bash
+streamlit run src/RentWatchAI/app.py
+```
 
 
 ## Results
